@@ -2,35 +2,62 @@
 import React from "react";
 import Image from "next/image";
 import { Project } from "@/data/project";
-import { ExternalLink, GitBranch, Github, Radio } from "lucide-react";
+import {
+  Github,
+  Radio,
+  Zap,
+  Cloud,
+  Lock,
+  Database,
+  Cpu,
+  Video,
+  MessageCircleMore,
+} from "lucide-react";
 import clsx from "clsx";
+import Badge from "../ui/Badge";
 import Link from "next/link";
 
 type Props = {
   project: Project;
 };
 
+const iconMap: Record<string, React.ElementType> = {
+  Zap: Zap,
+  Cloud: Cloud,
+  Lock: Lock,
+  Video: Video,
+  Message: MessageCircleMore,
+};
+
 export default function ProjectCard({ project }: Props) {
   return (
-    <article className="group w-full md:w-[calc(50%-24px)] rounded-[40px] overflow-hidden shadow-[0_0_12px_6px_rgba(0,0,0,0.15)] bg-white">
+    <article className="group w-full md:w-[calc(50%-24px)] rounded-[40px] overflow-hidden shadow-[0_0_12px_6px_rgba(0,0,0,0.15)] bg-white hover:bg-[#2563EB] duration-300 ease-in-out hover:scale-105">
       <div className="p-6">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
-          <h3 className="text-xl md:text-2xl font-semibold text-gray-800">
+          {/* title */}
+          <h3 className="text-xl md:text-2xl font-semibold text-gray-800 group group-hover:text-white">
             {project.title}
           </h3>
-          <div className="flex gap-2 text-white text-sm font-semibold">
+
+          {/* live and repo link */}
+          <div className="flex gap-2 items-center">
+            {/* live url */}
             {project.liveUrl && (
               <Link
                 href={project.liveUrl}
-                className=" text-[#2563EB] bg-white border border-gray-300 px-2 py-2 rounded-md hover:shadow-[0_0_4px_rgba(0,0,0,0.2)]"
+                aria-label="Open Live Demo"
+                className=" text-[#2563EB] group-hover:bg-white/20 group-hover:text-white group-hover:border-white/20 border border-gray-300 px-2 py-2 rounded-md"
               >
                 <Radio size={18} />
               </Link>
             )}
+
+            {/* github repo url */}
             {project.repoUrl && (
               <Link
                 href={project.repoUrl}
-                className=" bg-white px-2 py-2 rounded-md text-green-600 border border-gray-300 hover:shadow-[0_0_4px_rgba(0,0,0,0.2)]"
+                aria-label="Open Github Repository"
+                className="px-2 py-2 rounded-md text-green-600 group-hover:bg-white/20 group-hover:text-white group-hover:border-white/20 border border-gray-300"
               >
                 <Github size={18} />
               </Link>
@@ -38,23 +65,36 @@ export default function ProjectCard({ project }: Props) {
           </div>
         </div>
 
-        <p className="mt-2 text-base md:text-lg text-muted-foreground">
+        {/* project description */}
+        <p className="mt-2 text-base md:text-lg text-muted-foreground group-hover:text-white">
           {project.summary}
         </p>
 
-        <div className="mt-3 flex flex-wrap gap-2">
-          {project.tech.map((t) => (
-            <span
-              key={t}
-              className="text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-700"
-            >
-              {t}
-            </span>
-          ))}
-        </div>
-
+        {/* features */}
+        {project.features?.length ? (
+          <div
+            className="mt-4 flex flex-wrap gap-2"
+            role="list"
+            aria-label={`${project.title} features`}
+          >
+            {project.features.map((f) => {
+              const Icon = f.icon ? iconMap[f.icon] : undefined;
+              return (
+                <Badge
+                  key={f.name}
+                  text={f.name}
+                  Icon={Icon}
+                  bgColor={f.bgColor}
+                  textColor={f.textColor}
+                />
+              );
+            })}
+          </div>
+        ) : null}
       </div>
-      <div className="relative w-full h-64 md:h-96">
+
+      {/* project image */}
+      <div className="relative w-full h-72 md:h-96">
         {project.image ? (
           <Image
             src={project.image}

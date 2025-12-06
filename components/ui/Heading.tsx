@@ -21,7 +21,9 @@ const Heading: React.FC<HeadingProps> = ({
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <h1 className={`${textSize} ${bold} ${textColor} tracking-tighter`}>
+    <h1
+      className={`${textSize} ${bold} ${textColor} tracking-tighter whitespace-nowrap`}
+    >
       {text.split("").map((char, index) => (
         <motion.span
           key={index}

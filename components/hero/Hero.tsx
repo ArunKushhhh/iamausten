@@ -9,7 +9,7 @@ import { ChevronDown } from "lucide-react";
 
 const Hero = () => {
   return (
-    <div className="relative w-full px-6 pb-32 ld:pb-16 sm:px-18 lg:px-36 flex flex-col justify-end items-start h-screen">
+    <div className="relative w-full px-6 pb-32 ld:pb-16 sm:px-18 lg:px-36 flex flex-col justify-end items-start pt-24 sm:pt-32">
       {/* open to oppor */}
       <div className="flex gap-2 items-center border pr-4 rounded-full py-2 px-2 border-[#171717] text-[#171717]">
         <div className="relative bg-[#29903B]/20 px-2 py-2 rounded-full">
@@ -77,7 +77,7 @@ const Hero = () => {
         <motion.div
           animate={{ y: [-20, 0, -20] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col justify-center items-center gap-2 font-space-mono text-sm md:text-xl text-gray-500"
+          className="flex flex-col justify-center items-center gap-2 font-space-mono text-lg md:text-xl text-gray-500"
         >
           <div>Explore My Work</div>
           <div className="p-2 bg-[#2563EB] rounded-full">
