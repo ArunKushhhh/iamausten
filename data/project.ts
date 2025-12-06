@@ -47,15 +47,15 @@ export const projects: Project[] = [
         textColor: "text-[#8700F5]",
       },
       {
-        name: "Clerk Authentication",
-        icon: "Lock",
-        bgColor: "bg-yellow-600/30",
-        textColor: "text-yellow-600",
+        name: "Direct Messaging",
+        icon: "Message",
+        bgColor: "bg-[#CFC814]/30",
+        textColor: "text-[#CFC814]",
       },
     ],
     liveUrl: "https://msgo.example.com",
     repoUrl: "https://github.com/ArunKushhhh/msgo",
-    image: "/images/work/msgo/cover.avif",
+    image: "/images/work/msgo-cover.avif",
   },
   {
     id: "1",
@@ -96,6 +96,6 @@ export const projects: Project[] = [
     ],
     liveUrl: "https://msgo.example.com",
     repoUrl: "https://github.com/ArunKushhhh/msgo",
-    image: "/images/work/msgo/cover.avif",
+    image: "/images/work/msgo-cover.avif",
   },
 ];

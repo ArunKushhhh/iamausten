@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en" className={spaceMono.variable}>
       <body className="bg-white text-sm lg:text-base min-h-screen">
         <Navbar />
-        <main className="h-full pt-24">{children}</main>
+        <main className="h-full">{children}</main>
       </body>
     </html>
   );
