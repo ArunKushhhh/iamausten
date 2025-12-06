@@ -9,6 +9,7 @@ export type Project = {
   id: string;
   title: string;
   summary: string;
+  type: string;
   features: Feature[];
   liveUrl?: string;
   repoUrl?: string;
@@ -21,6 +22,7 @@ export const projects: Project[] = [
     title: "msgO - Realtime Chat Application",
     summary:
       "A feature-rich realtime chat application enabling seamless communication through direct messaging, group chats, media sharing, and video calls.",
+    type: "Web App",
     features: [
       {
         name: "Realtime Sync",
@@ -62,6 +64,7 @@ export const projects: Project[] = [
     title: "msgO - Realtime Chat Application",
     summary:
       "A feature-rich realtime chat application enabling seamless communication through direct messaging, group chats, media sharing, and video calls.",
+    type: "Web App",
     features: [
       {
         name: "Realtime Sync",

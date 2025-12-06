@@ -4,7 +4,7 @@ import { projects } from "@/data/project";
 import { BriefcaseBusiness, ChevronDown } from "lucide-react";
 import Heading from "../ui/Heading";
 import { motion } from "framer-motion";
-import { use, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function MyWorks() {
   const [visibleCount, setVisibleCount] = useState<number>(2);

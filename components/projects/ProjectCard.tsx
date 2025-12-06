@@ -8,12 +8,9 @@ import {
   Zap,
   Cloud,
   Lock,
-  Database,
-  Cpu,
   Video,
   MessageCircleMore,
 } from "lucide-react";
-import clsx from "clsx";
 import Badge from "../ui/Badge";
 import Link from "next/link";
 
@@ -31,7 +28,7 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default function ProjectCard({ project }: Props) {
   return (
-    <article className="group w-full md:w-[calc(50%-24px)] rounded-[40px] overflow-hidden shadow-[0_0_12px_6px_rgba(0,0,0,0.15)] bg-white hover:bg-[#2563EB] duration-300 ease-in-out hover:scale-105">
+    <article className="group w-full md:w-[calc(50%-24px)] rounded-[40px] overflow-hidden shadow-[0_4px_8px_rgba(0,0,0,0.2)] bg-white hover:bg-[#2563EB] duration-300 ease-in-out hover:scale-105">
       <div className="p-6">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-2">
           {/* title */}
@@ -64,6 +61,17 @@ export default function ProjectCard({ project }: Props) {
             )}
           </div>
         </div>
+
+        {/* project type badge */}
+        {project.type ? (
+          <div className="text-sm mt-2">
+            <Badge
+              text={project.type}
+              bgColor="bg-[#2563EB]/30"
+              textColor="text-[#2563EB]"
+            />
+          </div>
+        ) : null}
 
         {/* project description */}
         <p className="mt-2 text-base md:text-lg text-muted-foreground group-hover:text-white">
