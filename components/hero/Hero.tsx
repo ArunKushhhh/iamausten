@@ -9,7 +9,7 @@ import { ChevronDown } from "lucide-react";
 
 const Hero = () => {
   return (
-    <div className="relative w-full px-6 pb-32 ld:pb-16 sm:px-18 lg:px-36 flex flex-col justify-end items-start h-screen">
+    <div className="relative w-full px-6 pb-32 ld:pb-16 sm:px-18 lg:px-36 flex flex-col justify-end items-start h-[calc(100vh-44px)] lg:h-screen">
       {/* open to oppor */}
       <div className="flex gap-2 items-center border pr-4 rounded-full py-2 px-2 border-[#171717] text-[#171717]">
         <div className="relative bg-[#29903B]/20 px-2 py-2 rounded-full">
@@ -32,7 +32,7 @@ const Hero = () => {
       </div>
 
       {/* heading and desc */}
-      <div className="w-full flex flex-col lg:flex-row items-center lg:items-end">
+      <div className="w-full flex flex-col lg:flex-row items-center lg:items-end mt-4">
         {/* heading */}
         <div className="w-full lg:w-4/5 lg:mt-6">
           <Heading
