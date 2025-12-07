@@ -28,7 +28,7 @@ const Hero = () => {
           {/* Static center dot */}
           <div className="h-2 w-2 rounded-full bg-[#29903B] relative" />
         </div>
-        <p className="font-space-mono">Open to Opportunities</p>
+        <p className="font-space-mono tracking-tighter">Open to Opportunities</p>
       </div>
 
       {/* heading and desc */}
@@ -49,7 +49,7 @@ const Hero = () => {
           />
         </div>
         {/* desc and time */}
-        <div className="w-full flex flex-col md:flex-row md:items-end justify-between gap-2 mt-4 lg:mb-2 font-space-mono tracking-tighter text-base lg:text-lg text-gray-500 border-l-2 border-gray-400 pl-4">
+        <div className="w-full flex flex-col md:flex-row md:items-end justify-between gap-2 mt-4 lg:mb-2 tracking-tighter text-base lg:text-lg text-gray-500 border-l-2 border-gray-400 pl-4">
           <div>
             <p>A self taught Web and React Native Developer,</p>
             <p className="hidden md:flex">

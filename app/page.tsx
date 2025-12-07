@@ -1,8 +1,8 @@
+import AboutMe from "@/components/about/AboutMe";
 import Experiences from "@/components/experiences/Experiences";
 import MyHackathons from "@/components/hackathons/MyHackathons";
 import Hero from "@/components/hero/Hero";
 import MyWorks from "@/components/projects/MyWorks";
-import React from "react";
 
 const Home = () => {
   return (
@@ -11,6 +11,7 @@ const Home = () => {
       <MyWorks />
       <Experiences/>
       <MyHackathons />
+      <AboutMe />
     </div>
   );
 };
