@@ -19,7 +19,7 @@ const Badge: React.FC<BadgeProps> = ({
   return (
     <div
       role="listitem"
-      className={`inline-flex items-center gap-2 px-3 py-2 group-hover:bg-white/20 group-hover:text-white border group-hover:border-white/20 rounded-full whitespace-nowrap ${bgColor} ${textColor} ${className}`}
+      className={`inline-flex items-center gap-2 px-3 py-2 group-hover:bg-white/20 group-hover:text-white border group-hover:border-white/20 rounded-full whitespace-nowrap duration-300 ${bgColor} ${textColor} ${className}`}
     >
       {Icon ? <Icon className="size-5" aria-hidden /> : null}
       <span className="font-medium leading-none">{text}</span>

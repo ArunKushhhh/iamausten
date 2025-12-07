@@ -35,6 +35,7 @@ export default function HackathonCard({ hack }: Props) {
             alt={hack.name}
             fill
             className=" hover:scale-120 object-cover duration-300"
+            loading="lazy"
           />
         ) : (
           <div className="w-full h-full bg-slate-200" />

@@ -110,6 +110,7 @@ export default function ProjectCard({ project }: Props) {
             fill
             sizes="(max-width: 640px) 100vw, 33vw"
             className="object-cover"
+            loading="lazy"
           />
         ) : (
           <div className="w-full h-full bg-linear-to-r from-slate-100 to-slate-50" />

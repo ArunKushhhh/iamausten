@@ -32,15 +32,13 @@ const Movies = () => {
         {[0, 1].map((copy) => (
           <div key={copy} className="flex h-full">
             {movies.map((m) => (
-              <div
-                key={`${copy}-${m.name}`}
-                className="relative h-full w-60"
-              >
+              <div key={`${copy}-${m.name}`} className="relative h-full w-60">
                 <Image
                   src={m.icon}
                   alt={m.name}
                   fill
                   className="object-cover"
+                  loading="lazy"
                 />
               </div>
             ))}

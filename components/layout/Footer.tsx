@@ -35,7 +35,7 @@ const socialLinks = [
 ];
 const Footer = (props: Props) => {
   return (
-    <div className="w-full min-h-[70vh] bg-[#2563EB] text-white fixed bottom-0 top-0 px-6 sm:px-18 lg:px-36 pt-32 pb-16 lg:pt-40 flex items-end justify-between">
+    <div className="w-full min-h-screen bg-[#2563EB] text-white fixed bottom-0 px-6 sm:px-18 lg:px-36 pt-32 pb-16 lg:pt-40 flex items-end justify-between">
       <div className="relative w-full flex justify-between items-center">
         {/* left */}
         <div className="flex flex-col gap-4 md:gap-6">
