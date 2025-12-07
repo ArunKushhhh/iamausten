@@ -61,7 +61,10 @@ export default function Slideshow() {
   const currentIndex = page % imageCount;
 
   return (
-    <div ref={containerRef} className="relative w-full h-full select-none rounded-[40px] overflow-hidden bg-black min-h-120">
+    <div
+      ref={containerRef}
+      className="relative w-full h-full select-none rounded-[40px] overflow-hidden bg-black min-h-120"
+    >
       <AnimatePresence custom={direction} initial={false}>
         <motion.div
           key={page}
@@ -90,7 +93,7 @@ export default function Slideshow() {
           paginate(-1);
           resetTimer();
         }}
-        className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/30 text-white flex items-center justify-center shadow hover:scale-105 transition"
+        className="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/30 text-white flex items-center justify-center cursor-pointer"
       >
         <ChevronLeft size={24} />
       </button>
@@ -101,7 +104,7 @@ export default function Slideshow() {
           paginate(1);
           resetTimer();
         }}
-        className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/30 text-white flex items-center justify-center shadow hover:scale-105 transition"
+        className="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/30 text-white flex items-center justify-center cursor-pointer"
       >
         <ChevronRight size={24} />
       </button>

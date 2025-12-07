@@ -34,7 +34,7 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={submit}
-      className="bg-white rounded-[40px] border border-gray-300 p-6 flex flex-col gap-3 w-full"
+      className="bg-white rounded-[40px] border border-gray-300 p-4 lg:p-6 flex flex-col gap-3 w-full"
     >
       <div>
         <h4 className="text-xl md:text-3xl font-semibold">Hi, I'm Arun</h4>

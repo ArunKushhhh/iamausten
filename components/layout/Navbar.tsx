@@ -53,7 +53,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed z-1 w-full left-0 top-0 backdrop-blur bg-white/20 px-6 py-4 sm:px-18 lg:px-36">
+    <nav className="fixed z-2 w-full left-0 top-0 backdrop-blur bg-white/20 px-6 py-4 sm:px-18 lg:px-36">
       {/* Navbar */}
       <div className="flex items-center justify-between">
         {/* Logo */}
