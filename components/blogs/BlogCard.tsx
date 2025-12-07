@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
 import Image from "next/image";
 import { Blog } from "@/data/blogs";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Squirrel } from "lucide-react";
+import { ArrowRight, Squirrel } from "lucide-react";
 import Badge from "../ui/Badge";
 import Alert from "../ui/Alert";
 import Link from "next/link";
@@ -16,7 +15,7 @@ export default function BlogCard({ blog }: { blog: Blog }) {
       <div className="p-6 flex flex-col items-start gap-4 lg:gap-6">
         {/* alert message */}
         {blog.alert ? (
-          <Alert text={blog.alert} textColor={blog.textColor} />
+          <Alert blog={blog} />
         ) : null}
 
         {/* blog title */}
