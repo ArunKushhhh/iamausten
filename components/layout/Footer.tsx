@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Heading from "../ui/Heading";
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import Cursor from "../ui/Cursor";
 
 type Props = {};
 const socialLinks = [
@@ -34,8 +35,18 @@ const socialLinks = [
   },
 ];
 const Footer = (props: Props) => {
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
   return (
-    <div className="w-full min-h-screen bg-[#2563EB] text-white fixed bottom-0 px-6 sm:px-18 lg:px-36 pt-32 pb-16 lg:pt-40 flex items-end justify-between">
+    <Link href={"https://drive.google.com/file/d/1P_dij4oxqclU5uwDAHWwC-1lpd1XZlDO/view"} className="w-full min-h-screen bg-[#2563EB] text-white fixed bottom-0 px-6 sm:px-18 lg:px-36 pt-32 pb-16 lg:pt-40 flex items-end justify-between">
       <div className="relative w-full flex justify-between items-center">
         {/* left */}
         <div className="flex flex-col gap-4 md:gap-6">
@@ -62,18 +73,8 @@ const Footer = (props: Props) => {
             austen.dezigns.dev@gmail.com
           </div>
 
-          {/* social links */}
-          <div className="flex gap-6 items-center justify-start">
-            {socialLinks.map(({ href, Icon, label }) => (
-              <Link
-                key={href}
-                href={href}
-                aria-label={label}
-                className="bg-white p-3 rounded-full flex justify-center items-center hover:scale-120 duration-300"
-              >
-                <Icon size={18} className="text-[#171717]" />
-              </Link>
-            ))}
+          <div className="capitalize text-sm md:hidden">
+            Click anywhere to download my Resume!
           </div>
         </div>
 
@@ -82,7 +83,9 @@ const Footer = (props: Props) => {
           <Image src={"/images/logo.svg"} alt="logo" width={350} height={350} />
         </div>
       </div>
-    </div>
+
+      <Cursor x={mousePosition.x} y={mousePosition.y} />
+    </Link>
   );
 };
 
