@@ -73,7 +73,7 @@ const Footer = (props: Props) => {
             austen.dezigns.dev@gmail.com
           </div>
 
-          <div className="capitalize text-sm md:hidden">
+          <div className="capitalize text-sm lg:hidden">
             Click anywhere to download my Resume!
           </div>
         </div>
