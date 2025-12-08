@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={spaceMono.variable}>
-      <body className="text-sm lg:text-base min-h-screen">
+      <body>
         <Navbar />
         <main className="h-full w-full">{children}</main>
         <Footer />
