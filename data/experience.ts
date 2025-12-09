@@ -11,41 +11,48 @@ export type Experience = {
   bullets: string[];
   logo?: string; // path under /public or external url
   skills?: string[]; // short list of tech/impact
-  highlight?: string; // one-line impact summary
 };
 
 export const experiences: Experience[] = [
   {
-    id: "e-apnamart",
-    company: "Apna Mart",
-    role: "Frontend Engineer (Intern)",
+    id: "my-ai-mate",
+    company: "myAImate",
+    role: "Software Developer (Intern)",
     location: "Remote",
-    start: "2024-06",
-    end: "2024-09",
+    start: "December 2024",
+    end: "March 2025",
     type: "Internship",
-    logo: "/images/logos/apna-mart.png",
-    highlight: "Improved homepage LCP by 1.2s and reduced JS bundle by 18%.",
-    skills: ["Next.js", "TypeScript", "Tailwind", "Perf"],
+    logo: "/images/experience/myAImate.svg",
+    skills: [
+      "React.js",
+      "TailwindCSS",
+      "Node.js",
+      "Express",
+      "Redux",
+      "Angular",
+      "REST APIs",
+    ],
     bullets: [
-      "Built a progressive product listing with image optimization and skeleton loading states.",
-      "Refactored client-side caching, reducing redundant API calls by 35%.",
-      "Wrote comprehensive unit tests for core UI components and improved CI flow.",
+      "Developed an AI-proctured quiz platform with facial recognition and tab-switching monitoring, enabling seamless quiz conduction for 600+ students.",
+      "Collaborated with cross-functional teams to integrate REST APIs.",
+      "Enhanced the online education portal by integrating video streaming support.",
+      "Implemented Redux for state optimization and enhance performance",
     ],
   },
   {
-    id: "e-rn-client",
-    company: "Freelance — FoodApp",
-    role: "React Native Engineer (Contract)",
-    location: "Remote",
-    start: "2023-11",
-    end: "2024-02",
+    id: "i&ecell",
+    company: "I&E Cell",
+    role: "Secretary (Full Time)",
+    location: "Pune — On Site",
+    start: "July 2025",
     type: "Freelance",
-    logo: "/images/logos/foodapp.png",
-    highlight: "Delivered offline order sync and background sync features.",
-    skills: ["React Native", "Expo", "SQLite"],
+    logo: "/images/experience/ecell.svg",
+    skills: ["Next.js", "React.js", "Node.js", "PostgresSQL", "Prisma", "React Native", "Expo", "Figma"],
     bullets: [
-      "Implemented offline-first sync using local DB and conflict resolution.",
-      "Reduced app startup time by 30% through bundle splitting and image optimizations.",
+      "Designed and developed website for 'Startup Saga 5', a national level hackathon with over 6000+ registrations.",
+      "Developer of AIT Entrepreneurship Website.",
+      "Collaborated with Startups like FemtoLoop and NGOs like SKRF.",
+      "Led a team of 80 in event outreach, technical infrastructure, sponsorship acquisition, and general event management."
     ],
   },
 ];

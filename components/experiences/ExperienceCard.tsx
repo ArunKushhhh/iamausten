@@ -1,102 +1,103 @@
 // components/experiences/ExperienceCard.tsx
 "use client";
 
-import React from "react";
 import Image from "next/image";
+import { useState } from "react";
 import { Experience } from "@/data/experience";
-import clsx from "clsx";
+import { ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 type Props = {
   experience: Experience;
 };
 
 export default function ExperienceCard({ experience }: Props) {
-  const {
-    company,
-    role,
-    start,
-    end,
-    logo,
-    bullets,
-    skills,
-    location,
-    highlight,
-  } = experience;
+  const [isOpen, setIsOpen] = useState(false);
+  const { company, role, start, end, logo, bullets, skills, location } =
+    experience;
 
   const period = end ? `${start} — ${end}` : `${start} — Present`;
 
   return (
-    <article className="w-full">
-      <details className="group bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200">
+    <article className="w-full rounded-[40px] shadow-[0_2px_4px_rgba(0,0,0,0.2)] overflow-hidden p-4 md:p-6">
+      <details className="group flex flex-col gap-6">
+        {/* summary */}
         <summary
-          className="flex items-center justify-between gap-4 p-5 cursor-pointer list-none outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+          className="flex flex-col items-start md:flex-row md:items-center justify-between gap-4 cursor-pointer list-none outline-none"
           aria-label={`${role} at ${company}`}
         >
-          {/* Left: logo + role/company */}
-          <div className="flex items-center gap-4">
-            {logo ? (
-              <div className="flex-none w-12 h-12 rounded-full overflow-hidden bg-slate-100 flex items-center justify-center">
-                <Image
-                  src={logo}
-                  alt={`${company} logo`}
-                  width={48}
-                  height={48}
-                  className="object-contain"
-                />
-              </div>
-            ) : (
-              <div className="flex-none w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-sm font-medium text-slate-700">
-                {company
-                  .split(" ")
-                  .slice(0, 2)
-                  .map((w) => w[0])
-                  .join("")}
-              </div>
-            )}
-
-            <div>
-              <div className="text-base md:text-lg font-semibold text-gray-800">
-                {role}
-              </div>
-              <div className="text-sm text-gray-500">
-                {company}
-                {location ? ` — ${location}` : ""}
-              </div>
+          {/* Left: role/company and location */}
+          <div className="flex flex-col gap-0">
+            <div className="text-xl md:text-2xl font-semibold text-gray-800 group-hover:text-[#2563EB] duration-300">
+              {role}
+            </div>
+            <div className="text-base md:text-lg text-muted-foreground">
+              {location ? ` — ${location}` : ""}
             </div>
           </div>
 
+          {/* company logo */}
+          {logo ? (
+            <div className="relative flex-none flex items-center justify-center">
+              <Image
+                src={logo}
+                alt={`${company} logo`}
+                width={100}
+                height={52}
+                className="object-contain"
+              />
+            </div>
+          ) : null}
+
           {/* Right: period & highlight */}
-          <div className="shrink-0 text-right">
-            {highlight && (
-              <div className="text-sm text-slate-600 mb-1 hidden md:block">
-                {highlight}
-              </div>
-            )}
-            <div className="text-xs text-gray-500">{period}</div>
+          <div className="flex items-center gap-1 text-right text-sm md:text-base text-muted-foreground">
+            <div>{period}</div>
+            <motion.div
+              animate={{ rotate: 0 }}
+              whileHover={{ scale: 1.1 }}
+              className="origin-center group-open:rotate-180 transition-transform duration-300"
+            >
+              <ChevronDown />
+            </motion.div>
           </div>
         </summary>
 
         {/* Expanded content */}
-        <div className="px-6 pb-6">
-          <ul className="mt-2 space-y-2 list-disc list-inside text-sm text-gray-700">
-            {bullets.map((b, i) => (
-              <li key={i}>{b}</li>
-            ))}
-          </ul>
+        <AnimatePresence initial={false}>
+          {isOpen && (
+            <motion.div
+              key="content"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="overflow-hidden"
+            >
+              <div className="px-8 border-l-4 border-[#2563EB]/60 rounded-lg py-4">
+                {/* tech stack learned */}
+                {skills?.length ? (
+                  <div className="mb-6 flex flex-wrap gap-2 text-xs">
+                    {skills.map((s) => (
+                      <div
+                        key={s}
+                        className="inline-flex items-center gap-2 px-3 py-2 border rounded-full whitespace-nowrap duration-300 bg-slate-100 text-slate-700"
+                      >
+                        {s}
+                      </div>
+                    ))}
+                  </div>
+                ) : null}
 
-          {skills?.length ? (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {skills.map((s) => (
-                <span
-                  key={s}
-                  className="text-xs px-2 py-1 rounded-full bg-slate-100 text-slate-700"
-                >
-                  {s}
-                </span>
-              ))}
-            </div>
-          ) : null}
-        </div>
+                {/* key points */}
+                <ul className="space-y-2 list-disc list-inside text-base text-gray-600">
+                  {bullets.map((b, i) => (
+                    <li key={i}>{b}</li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </details>
     </article>
   );

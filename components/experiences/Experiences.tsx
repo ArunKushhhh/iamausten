@@ -43,7 +43,7 @@ export default function Experiences() {
         />
       </motion.header>
 
-      <div className="w-full">
+      <div className="w-full flex flex-col space-y-8">
         {filtered.map((exp: Experience) => (
           <ExperienceCard key={exp.id} experience={exp} />
         ))}

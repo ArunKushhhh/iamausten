@@ -4,7 +4,8 @@ import { projects } from "@/data/project";
 import { BriefcaseBusiness, ChevronDown } from "lucide-react";
 import Heading from "../ui/Heading";
 import { motion } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import {
+ useEffect, useMemo, useState } from "react";
 
 export default function MyWorks() {
   const [visibleCount, setVisibleCount] = useState<number>(2);
@@ -44,7 +45,7 @@ export default function MyWorks() {
 
   return (
     <section
-      id="work"
+      id="myworks"
       className="w-full mx-auto px-6 sm:px-18 lg:px-36 pt-32 pb-16 lg:pt-40 flex flex-col items-center gap-16"
     >
       {/* My works heading and animation */}

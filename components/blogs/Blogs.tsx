@@ -176,7 +176,7 @@ const Blogs = () => {
       {/* link to medium profile */}
       <Link
         href={"https://medium.com/@arunsarojkushwaha10"}
-        className="relative w-full md:w-auto group flex items-center justify-center gap-4 px-8 py-3 text-[#171717] bg-white hover:text-white rounded-full text-xl font-semibold overflow-hidden duration-300 shadow-[0_2px_4px_rgba(0,0,0,0.2)]"
+        className="relative w-full md:w-auto group flex items-center justify-center gap-4 px-8 py-3 text-[#171717] bg-white hover:text-white rounded-full text-base md:text-xl font-semibold overflow-hidden duration-300 shadow-[0_2px_4px_rgba(0,0,0,0.2)]"
       >
         <div className="absolute bg-[#2563EB] top-0 left-0 h-full w-0 group-hover:w-full group-hover:rounded-full duration-500 ease-out" />
         <p className="z-0">Visit Profile on Medium</p>

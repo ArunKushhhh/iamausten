@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={spaceMono.variable}>
+    <html lang="en" className={`${spaceMono.variable} scroll-smooth`} suppressHydrationWarning>
       <body>
         <Navbar />
         <main className="h-full w-full">{children}</main>

@@ -15,7 +15,7 @@ type Props = {};
 
 const AboutMe = (props: Props) => {
   return (
-    <section className="w-full mx-auto px-6 sm:px-18 lg:px-36 pt-32 pb-16 lg:pt-40 flex flex-col items-center gap-16">
+    <section id="about" className="w-full mx-auto px-6 sm:px-18 lg:px-36 pt-32 pb-16 lg:pt-40 flex flex-col items-center gap-16">
       {/* header with animation */}
       <motion.header
         animate={{ y: [60, 0], opacity: [0, 1] }}

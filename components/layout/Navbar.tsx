@@ -16,10 +16,14 @@ import {
 } from "lucide-react";
 
 const navItems = [
-  { href: "/", Icon: House, label: "Home" },
-  { href: "/", Icon: BriefcaseBusiness, label: "Work" },
-  { href: "/", Icon: User, label: "About" },
-  { href: "/", Icon: FileUser, label: "Resume" },
+  { href: "#home", Icon: House, label: "Home" },
+  { href: "#myworks", Icon: BriefcaseBusiness, label: "Work" },
+  { href: "#about", Icon: User, label: "About" },
+  {
+    href: "https://drive.google.com/file/d/1P_dij4oxqclU5uwDAHWwC-1lpd1XZlDO/view",
+    Icon: FileUser,
+    label: "Resume",
+  },
 ];
 
 const socialLinks = [
