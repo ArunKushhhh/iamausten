@@ -9,10 +9,10 @@ type Props = {
 const Alert = ({ blog }: Props) => {
   return (
     <div
-      className={`px-4 py-1 bg-white/40 rounded-md flex gap-2 items-center ${blog.textColor}`}
+      className={`px-4 py-1 bg-white/40 rounded-md flex gap-2 items-start ${blog.textColor}`}
     >
-      <CircleAlert className="size-10" />
-      <p className="line-clamp-1">{blog.alert}</p>
+      <CircleAlert size={20} className="mt-1" />
+      <p className="line-clamp-2 w-full">{blog.alert}</p>
     </div>
   );
 };

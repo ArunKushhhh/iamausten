@@ -27,7 +27,7 @@ export default function BlogCard({ blog }: { blog: Blog }) {
           </h3>
 
           {/* blog summary */}
-          <p className={`text-base md:text-lg ${blog.textColor}/80`}>
+          <p className={`text-base md:text-lg ${blog.textColor} opacity-90`}>
             {blog.summary}
           </p>
         </div>
@@ -47,7 +47,7 @@ export default function BlogCard({ blog }: { blog: Blog }) {
           </div>
 
           <p
-            className={`text-xs font-medium ${blog.textColor} flex gap-2 items-center`}
+            className={`text-xs font-medium ${blog.textColor} flex gap-2 items-center whitespace-nowrap`}
           >
             <Squirrel />
             {blog.date}

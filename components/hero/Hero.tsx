@@ -8,7 +8,7 @@ import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 const Hero = () => {
   return (
-    <div id="home" className="relative w-full px-6 pb-32 ld:pb-16 sm:px-18 lg:px-36 flex flex-col justify-end items-start h-[calc(100vh-44px)] lg:h-screen">
+    <div id="home" className="relative w-full px-6 pb-28 ld:pb-16 sm:px-18 lg:px-36 flex flex-col justify-end items-start h-[calc(100vh-44px)] lg:h-screen">
       {/* open to oppor */}
       <div className="flex gap-2 items-center border pr-4 rounded-full py-2 px-2 border-[#171717] text-[#171717]">
         <div className="relative bg-[#29903B]/20 px-2 py-2 rounded-full">
@@ -50,8 +50,8 @@ const Hero = () => {
         {/* desc and time */}
         <div className="w-full flex flex-col md:flex-row md:items-end justify-between gap-2 mt-4 lg:mb-2 tracking-tighter text-base lg:text-lg text-gray-500 border-l-2 border-gray-400 pl-4">
           <div>
-            <p>A self taught Web and React Native Developer</p>
-            <p className="hidden md:flex">
+            <p>A self taught Web and React Native Developer,</p>
+            <p>
               currently a MAN on my MISSIONS!
             </p>
           </div>
@@ -76,7 +76,7 @@ const Hero = () => {
         <motion.div
           animate={{ y: [-20, 0, -20] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="flex flex-col justify-center items-center gap-2 font-space-mono text-lg md:text-xl text-gray-500"
+          className="flex flex-col justify-center items-center gap-2 font-space-mono tracking-tighter text-lg md:text-xl text-gray-500"
         >
           <div>Explore My Work</div>
           <div className="p-2 bg-[#2563EB] rounded-full">

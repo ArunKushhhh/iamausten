@@ -45,9 +45,6 @@ export default function ContactForm() {
       </div>
 
       <div className="flex flex-col gap-1">
-        <p className="text-sm text-muted-foreground">
-          Message me on my Discord Channel!
-        </p>
         <div className="flex gap-2">
           <input
             required
