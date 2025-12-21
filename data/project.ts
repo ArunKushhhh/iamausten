@@ -18,6 +18,48 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "ezSnippet",
+    title: "ezSnippet - A Snippet Manager",
+    summary:
+      "A feature-rich realtime chat application enabling seamless communication through direct messaging, group chats, media sharing, and video calls.",
+    type: "Next.js Web App",
+    features: [
+      {
+        name: "Realtime Sync",
+        icon: "Zap",
+        bgColor: "bg-[#2563EB]/30",
+        textColor: "text-[#2563EB]",
+      },
+      {
+        name: "Media Sharing",
+        icon: "Cloud",
+        bgColor: "bg-[#009d06]/30",
+        textColor: "text-[#009d06]",
+      },
+      {
+        name: "Video Calls",
+        icon: "Video",
+        bgColor: "bg-[#FF5100]/30",
+        textColor: "text-[#FF5100]",
+      },
+      {
+        name: "Clerk Authentication",
+        icon: "Lock",
+        bgColor: "bg-[#8700F5]/30",
+        textColor: "text-[#8700F5]",
+      },
+      {
+        name: "Direct Messaging",
+        icon: "Message",
+        bgColor: "bg-[#CFC814]/30",
+        textColor: "text-[#CFC814]",
+      },
+    ],
+    liveUrl: "https://writespace-ivory.vercel.app/",
+    repoUrl: "https://github.com/ArunKushhhh/writespace",
+    image: "/images/work/writespace.png",
+  },
+  {
     id: "writespace",
     title: "WriteSpace - A Blog Page",
     summary:
