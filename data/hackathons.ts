@@ -40,7 +40,7 @@ export const hackathons: Hackathon[] = [
     ],
     summary:
       "Developed a Move-based App on Aptos with secure transactions and gas-efficient smart contracts in a weekend sprint.",
-    projectUrl: "",
+    projectUrl: "https://github.com/ArunKushhhh/Aptos-PullQuest-Frontend",
     image: "/images/hacks/aptos.jpeg",
   },
   {
@@ -59,7 +59,7 @@ export const hackathons: Hackathon[] = [
     ],
     summary:
       "Shipped an AI-powered developer productivity tool that analyzes code, summarizes changes, and assists with PR reviews.",
-    projectUrl: "",
+    projectUrl: "https://github.com/ArunKushhhh/Aptos-PullQuest-Frontend",
     image: "/images/hacks/algorand.jpeg",
   },
   {
@@ -78,7 +78,7 @@ export const hackathons: Hackathon[] = [
     ],
     summary:
       "Shipped an AI-powered developer productivity tool that analyzes code, summarizes changes, and assists with PR reviews.",
-    projectUrl: "",
+    projectUrl: "https://github.com/ArunKushhhh/Aptos-PullQuest-Frontend",
     image: "/images/hacks/hackPrix.webp",
   },
 ];

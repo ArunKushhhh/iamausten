@@ -1,7 +1,6 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useLayoutEffect, useRef } from "react";
 import Heading from "../ui/Heading";
 import { ScanFace } from "lucide-react";
 import Slideshow from "./Slideshow";
@@ -10,22 +9,52 @@ import SpotifyTile from "./SpotifyTile";
 import F1Tile from "./F1Tile";
 import Movies from "./Movies";
 import SkillsMarquee from "./SkillsMarquee";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type Props = {};
 
 const AboutMe = (props: Props) => {
+  const headerRef = useRef<HTMLElement>(null);
+
+  useLayoutEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+
+    const anim = gsap.fromTo(
+      el,
+      { y: 60, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 70%",
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+
+    return () => {
+      anim.scrollTrigger?.kill();
+      anim.kill();
+    };
+  }, []);
+
   return (
-    <section id="about" className="w-full mx-auto px-6 sm:px-18 lg:px-36 pt-32 pb-16 lg:pt-40 flex flex-col items-center gap-16">
+    <section
+      id="about"
+      className="w-full mx-auto px-6 sm:px-18 lg:px-36 pt-32 pb-16 lg:pt-40 flex flex-col items-center gap-16"
+    >
       {/* header with animation */}
-      <motion.header
-        animate={{ y: [60, 0], opacity: [0, 1] }}
-        transition={{
-          type: "spring",
-          stiffness: 300,
-          damping: 10,
-          duration: 3,
-        }}
+      <header
+        ref={headerRef}
         className="flex flex-col gap-4 md:gap-6 items-center justify-between"
+        style={{ opacity: 0 }}
       >
         <ScanFace className="size-12 md:size-16" color="#2563EB" />
         <Heading
@@ -34,7 +63,7 @@ const AboutMe = (props: Props) => {
           translateUpOnHover={-12}
           bold="font-extrabold"
         />
-      </motion.header>
+      </header>
 
       {/* responsive bento grid */}
       <div className="w-full h-auto lg:h-[90vh] flex flex-col lg:flex-row gap-6">
@@ -53,7 +82,7 @@ const AboutMe = (props: Props) => {
         {/* --- RIGHT SECTION (66%) --- */}
         <div className="w-full h-full lg:w-[60%] flex flex-col gap-6">
           {/* top */}
-            <ContactForm />
+          <ContactForm />
           {/* bottom */}
           <div className="w-full h-full flex gap-6 flex-col lg:flex-row">
             {/* left */}

@@ -4,12 +4,42 @@ import { projects } from "@/data/project";
 import { BriefcaseBusiness, ChevronDown } from "lucide-react";
 import Heading from "../ui/Heading";
 import { motion } from "framer-motion";
-import {
- useEffect, useMemo, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function MyWorks() {
+  const headerRef = useRef<HTMLElement>(null);
   const [visibleCount, setVisibleCount] = useState<number>(2);
   const [expanded, setExpanded] = useState<boolean>(false);
+
+  useLayoutEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+
+    const anim = gsap.fromTo(
+      el,
+      { y: 60, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 70%",
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+
+    return () => {
+      anim.scrollTrigger?.kill();
+      anim.kill();
+    };
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -49,15 +79,10 @@ export default function MyWorks() {
       className="w-full mx-auto px-6 sm:px-18 lg:px-36 pt-32 pb-16 lg:pt-40 flex flex-col items-center gap-16"
     >
       {/* My works heading and animation */}
-      <motion.header
-        animate={{ y: [60, 0], opacity: [0, 1] }}
-        transition={{
-          type: "spring",
-          stiffness: 300,
-          damping: 10,
-          duration: 3,
-        }}
+      <header
+        ref={headerRef}
         className="flex flex-col gap-4 md:gap-6 items-center justify-between"
+        style={{ opacity: 0 }}
       >
         <BriefcaseBusiness className="size-12 md:size-16" color="#2563EB" />
         <Heading
@@ -66,7 +91,7 @@ export default function MyWorks() {
           translateUpOnHover={-12}
           bold="font-extrabold"
         />
-      </motion.header>
+      </header>
 
       {/* Projects */}
       <div className="flex flex-wrap w-full justify-between items-center gap-8 lg:gap-6">

@@ -1,22 +1,52 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Heading from "../ui/Heading";
 import { Bug, ChevronLeft, ChevronRight } from "lucide-react";
-import { motion } from "framer-motion";
 import { hackathons } from "@/data/hackathons";
 import HackathonCard from "./HackathonCard";
 import Pagination from "@/components/ui/Pagination";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 type Props = {};
 
 const MyHackathons = (props: Props) => {
+  const headerRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const innerRef = useRef<HTMLDivElement | null>(null);
 
   const [pages, setPages] = useState<number>(1);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [canScroll, setCanScroll] = useState<boolean>(false);
+
+  useLayoutEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+
+    const anim = gsap.fromTo(
+      el,
+      { y: 60, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 70%",
+          toggleActions: "restart none none none",
+        },
+      }
+    );
+
+    return () => {
+      anim.scrollTrigger?.kill();
+      anim.kill();
+    };
+  }, []);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -82,15 +112,10 @@ const MyHackathons = (props: Props) => {
   return (
     <div className="w-full mx-auto px-6 sm:px-18 lg:px-36 pt-32 pb-16 lg:pt-40 flex flex-col items-center gap-8">
       {/* header with animation */}
-      <motion.header
-        animate={{ y: [60, 0], opacity: [0, 1] }}
-        transition={{
-          type: "spring",
-          stiffness: 300,
-          damping: 10,
-          duration: 3,
-        }}
+      <header
+        ref={headerRef}
         className="flex flex-col gap-4 md:gap-6 items-center justify-between"
+        style={{ opacity: 0 }}
       >
         <Bug className="size-12 md:size-16" color="#2563EB" />
         <Heading
@@ -99,7 +124,7 @@ const MyHackathons = (props: Props) => {
           translateUpOnHover={-12}
           bold="font-extrabold"
         />
-      </motion.header>
+      </header>
 
       {/* Horizontal scroll container */}
       <div className="relative w-full">
@@ -121,7 +146,9 @@ const MyHackathons = (props: Props) => {
               <div
                 key={h.id}
                 style={{ scrollSnapAlign: "center" }}
-                className={`${hackathons.length === 2 ? "w-1/2" : ""} min-w-full md:min-w-[calc(80%)] lg:min-w-[calc(45%-12px)]`}
+                className={`${
+                  hackathons.length === 2 ? "w-1/2" : ""
+                } min-w-full md:min-w-[calc(80%)] lg:min-w-[calc(45%-12px)]`}
               >
                 <HackathonCard hack={h} />
               </div>

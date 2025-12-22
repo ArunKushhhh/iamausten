@@ -8,8 +8,18 @@ import {
   Zap,
   Cloud,
   Lock,
+  Search,
   Video,
   MessageCircleMore,
+  Heart,
+  CodeXml,
+  MessageCircle,
+  TimerReset,
+  Images,
+  Wifi,
+  Spool,
+  Share2,
+  Smile
 } from "lucide-react";
 import Badge from "../ui/Badge";
 import Link from "next/link";
@@ -24,6 +34,16 @@ const iconMap: Record<string, React.ElementType> = {
   Lock: Lock,
   Video: Video,
   Message: MessageCircleMore,
+  Search: Search,
+  Heart: Heart,
+  CodeXml: CodeXml,
+  MessageCircle: MessageCircle,
+  TimerReset: TimerReset,
+  Images: Images,
+  Wifi: Wifi,
+  Spool: Spool,
+  Share2: Share2,
+  Smile: Smile,
 };
 
 export default function ProjectCard({ project }: Props) {
