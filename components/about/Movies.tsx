@@ -37,6 +37,7 @@ const Movies = () => {
                   src={m.icon}
                   alt={m.name}
                   fill
+                  sizes="(max-width: 1024px) 50vw, 25vw"
                   className="object-cover"
                   loading="lazy"
                 />

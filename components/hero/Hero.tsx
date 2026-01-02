@@ -8,7 +8,10 @@ import { ArrowUpRight, ChevronDown } from "lucide-react";
 
 const Hero = () => {
   return (
-    <div id="home" className="relative w-full px-6 pb-28 ld:pb-16 sm:px-18 lg:px-36 flex flex-col justify-end items-start h-[calc(100vh-44px)] lg:h-screen">
+    <div
+      id="home"
+      className="relative w-full px-6 pb-28 ld:pb-16 sm:px-18 lg:px-36 flex flex-col justify-end items-start h-[calc(100vh-44px)] lg:h-screen"
+    >
       {/* open to oppor */}
       <div className="flex gap-2 items-center border pr-4 rounded-full py-2 px-2 border-[#171717] text-[#171717]">
         <div className="relative bg-[#29903B]/20 px-2 py-2 rounded-full">
@@ -27,7 +30,9 @@ const Hero = () => {
           {/* Static center dot */}
           <div className="h-2 w-2 rounded-full bg-[#29903B] relative" />
         </div>
-        <p className="font-space-mono tracking-tighter">Open to Opportunities</p>
+        <p className="font-space-mono tracking-tighter">
+          Open to Opportunities
+        </p>
       </div>
 
       {/* heading and desc */}
@@ -51,9 +56,7 @@ const Hero = () => {
         <div className="w-full flex flex-col md:flex-row md:items-end justify-between gap-2 mt-4 lg:mb-2 tracking-tighter text-base lg:text-lg text-gray-500 border-l-2 border-gray-400 pl-4">
           <div>
             <p>A self taught Web and React Native Developer,</p>
-            <p>
-              currently a MAN on my MISSIONS!
-            </p>
+            <p>currently a MAN on my MISSIONS!</p>
           </div>
           <div>
             <DigitalClock />
@@ -67,12 +70,15 @@ const Hero = () => {
         className="relative group flex items-center gap-4 px-6 py-3 text-white bg-[#171717] rounded-full text-xl font-semibold overflow-hidden mt-6"
       >
         <div className="absolute bg-[#2563EB] top-0 left-0 h-full w-0 group-hover:w-full group-hover:rounded-full duration-500 ease-out" />
-        <p className="z-0">Let's Connect</p>
-        <ArrowUpRight  className={`z-0`} size={20} />
+        <p className="z-0">Let&apos;s Connect</p>
+        <ArrowUpRight className={`z-0`} size={20} />
       </Link>
 
       {/* explore my work */}
-      <Link href={"#myworks"} className="absolute bottom-4 left-1/2 -translate-x-1/2">
+      <Link
+        href={"#myworks"}
+        className="absolute bottom-4 left-1/2 -translate-x-1/2"
+      >
         <motion.div
           animate={{ y: [-20, 0, -20] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}

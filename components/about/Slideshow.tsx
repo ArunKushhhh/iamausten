@@ -21,19 +21,22 @@ export default function Slideshow() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const imageCount = IMAGES.length;
 
-  const paginate = (newDirection: Direction) => {
-    setPage(([p]) => {
-      const next = (p + newDirection + imageCount) % imageCount;
-      return [next, newDirection];
-    });
-  };
+  const paginate = React.useCallback(
+    (newDirection: Direction) => {
+      setPage(([p]) => {
+        const next = (p + newDirection + imageCount) % imageCount;
+        return [next, newDirection];
+      });
+    },
+    [imageCount]
+  );
 
   useEffect(() => {
     timerRef.current = window.setInterval(() => paginate(1), 4000);
     return () => {
       if (timerRef.current) window.clearInterval(timerRef.current);
     };
-  }, []);
+  }, [paginate]);
 
   const resetTimer = () => {
     if (timerRef.current) window.clearInterval(timerRef.current);
@@ -80,6 +83,7 @@ export default function Slideshow() {
             src={IMAGES[currentIndex]}
             alt={`Slide ${currentIndex + 1}`}
             fill
+            sizes="(max-width: 1024px) 100vw, 40vw"
             className="object-cover"
             priority={currentIndex === 0}
           />

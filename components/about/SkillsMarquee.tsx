@@ -1,4 +1,3 @@
-// components/about/SocialLinksTile.tsx
 "use client";
 
 import { useEffect } from "react";
@@ -6,7 +5,7 @@ import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
 import { skills } from "@/data/skills";
 
-export default function SocialLinksTile() {
+export default function SkillsMarquee() {
   const controls = useAnimation();
 
   useEffect(() => {

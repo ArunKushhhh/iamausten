@@ -10,11 +10,11 @@ const spaceMono = Space_Mono({
   variable: "--font-space-mono",
 });
 export const metadata: Metadata = {
-  title: "ImAusten",
+  title: "ImAusten | Arun Kushwaha",
   description: "Get to know about me through my Portfolio!",
   icons: {
-    icon: "/favicon.svg"
-  }
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -23,7 +23,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${spaceMono.variable} scroll-smooth`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${spaceMono.variable} scroll-smooth`}
+      suppressHydrationWarning
+    >
       <body>
         <Navbar />
         <main className="h-full w-full">{children}</main>

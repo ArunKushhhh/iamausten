@@ -45,6 +45,7 @@ export default function ExperienceCard({ experience }: Props) {
                 alt={`${company} logo`}
                 width={100}
                 height={52}
+                style={{ width: "auto", height: "auto" }}
                 className="object-contain"
               />
             </div>

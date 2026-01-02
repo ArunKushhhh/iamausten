@@ -26,7 +26,7 @@ export default function ContactForm() {
       setTimeout(() => {
         setStatus("idle");
       }, 4000);
-    } catch (error) {
+    } catch {
       setStatus("error");
     }
   }
@@ -37,10 +37,10 @@ export default function ContactForm() {
       className="bg-white rounded-[40px] border border-gray-300 p-4 lg:p-6 flex flex-col gap-3 w-full"
     >
       <div>
-        <h4 className="text-xl md:text-3xl font-semibold">Hi, I'm Arun</h4>
+        <h4 className="text-xl md:text-3xl font-semibold">Hi, I&apos;m Arun</h4>
         <p className="md:text-lg text-muted-foreground">
-          Shoot me a message, and let’s grab a coffee -because good chats and
-          great vibes go best with caffeine :)
+          Shoot me a message, and let&apos;s grab a coffee -because good chats
+          and great vibes go best with caffeine :)
         </p>
       </div>
 

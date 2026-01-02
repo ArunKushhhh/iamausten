@@ -6,9 +6,9 @@ export default function SpotifyTile({
   spotifyEmbedSrc = "https://open.spotify.com/embed/track/1oFAF1hdPOickyHgbuRjyX?utm_source=generator",
 }: Props) {
   return (
-    <div className="w-full h-full bg-black rounded-[40px] overflow-hidden">
+    <div className="w-full h-auto bg-black rounded-[40px] overflow-hidden flex items-center justify-center min-h-[152px]">
       {spotifyEmbedSrc ? (
-        <div className="w-full h-full">
+        <div className="w-full">
           <iframe
             loading="lazy"
             src={spotifyEmbedSrc}

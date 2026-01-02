@@ -14,9 +14,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-type Props = {};
-
-const AboutMe = (props: Props) => {
+const AboutMe = () => {
   const headerRef = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {

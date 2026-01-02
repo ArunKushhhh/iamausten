@@ -10,7 +10,6 @@ import {
   Lock,
   Search,
   Video,
-  MessageCircleMore,
   Heart,
   CodeXml,
   MessageCircle,
@@ -19,7 +18,16 @@ import {
   Wifi,
   Spool,
   Share2,
-  Smile
+  Smile,
+  Workflow,
+  Activity,
+  Clock,
+  CreditCard,
+  Mails,
+  Coins,
+  TrendingUp,
+  UserSearch,
+  GitPullRequest,
 } from "lucide-react";
 import Badge from "../ui/Badge";
 import Link from "next/link";
@@ -33,7 +41,6 @@ const iconMap: Record<string, React.ElementType> = {
   Cloud: Cloud,
   Lock: Lock,
   Video: Video,
-  Message: MessageCircleMore,
   Search: Search,
   Heart: Heart,
   CodeXml: CodeXml,
@@ -44,6 +51,15 @@ const iconMap: Record<string, React.ElementType> = {
   Spool: Spool,
   Share2: Share2,
   Smile: Smile,
+  Workflow: Workflow,
+  Activity: Activity,
+  Clock: Clock,
+  CreditCard: CreditCard,
+  Mails: Mails,
+  Coins: Coins,
+  TrendingUp: TrendingUp,
+  UserSearch: UserSearch,
+  GitPullRequest: GitPullRequest,
 };
 
 export default function ProjectCard({ project }: Props) {
@@ -59,7 +75,7 @@ export default function ProjectCard({ project }: Props) {
           {/* live and repo link */}
           <div className="flex gap-2 items-center">
             {/* live url */}
-            {project.liveUrl && (
+            {project.liveUrl ? (
               <Link
                 href={project.liveUrl}
                 aria-label="Open Live Demo"
@@ -67,6 +83,12 @@ export default function ProjectCard({ project }: Props) {
               >
                 <Radio size={18} />
               </Link>
+            ) : (
+              <Badge
+                text="Crafting..."
+                className="text-sm group-hover:bg-white/20 group-hover:text-white bg-white"
+                textColor="text-[#2563EB]"
+              />
             )}
 
             {/* github repo url */}
@@ -114,6 +136,7 @@ export default function ProjectCard({ project }: Props) {
                   Icon={Icon}
                   bgColor={f.bgColor}
                   textColor={f.textColor}
+                  className="text-sm"
                 />
               );
             })}
@@ -122,14 +145,14 @@ export default function ProjectCard({ project }: Props) {
       </div>
 
       {/* project image */}
-      <div className="relative w-full h-72 md:h-96">
+      <div className="w-full">
         {project.image ? (
           <Image
             src={project.image}
             alt={project.title}
-            fill
-            sizes="(max-width: 640px) 100vw, 33vw"
-            className="object-cover"
+            width={1000}
+            height={600}
+            className="w-full h-auto"
             loading="lazy"
           />
         ) : (

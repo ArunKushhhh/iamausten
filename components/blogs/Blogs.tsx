@@ -73,7 +73,7 @@ const Blogs = () => {
     if (innerRef.current) ro.observe(innerRef.current);
 
     return () => ro.disconnect();
-  }, [blogs.length]);
+  }, []);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -189,13 +189,7 @@ const Blogs = () => {
       </div>
 
       {/* pagination */}
-      <Pagination
-        pages={pages}
-        current={currentPage}
-        onPrev={handlePrev}
-        onNext={handleNext}
-        onSelect={handleSelect}
-      />
+      <Pagination pages={pages} current={currentPage} onSelect={handleSelect} />
 
       {/* link to medium profile */}
       <Link

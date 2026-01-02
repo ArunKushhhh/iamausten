@@ -14,9 +14,7 @@ export default function BlogCard({ blog }: { blog: Blog }) {
     >
       <div className="p-6 flex flex-col items-start gap-4 lg:gap-6">
         {/* alert message */}
-        {blog.alert ? (
-          <Alert blog={blog} />
-        ) : null}
+        {blog.alert ? <Alert blog={blog} /> : null}
 
         {/* blog title */}
         <div className="flex flex-col gap-2 items-start">
@@ -71,6 +69,7 @@ export default function BlogCard({ blog }: { blog: Blog }) {
             src={blog.cover}
             alt={blog.title}
             fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover group-hover:scale-105 duration-300"
             loading="lazy"
           />

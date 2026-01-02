@@ -1,7 +1,7 @@
 // components/experiences/ExperiencesSection.tsx
 "use client";
 
-import React, { useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { experiences, Experience } from "@/data/experience";
 import ExperienceCard from "./ExperienceCard";
 import Heading from "@/components/ui/Heading";
@@ -11,11 +11,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const types = ["All", "Internship", "Freelance", "Full-time"] as const;
-
 export default function Experiences() {
   const headerRef = useRef<HTMLElement>(null);
-  const [filter, setFilter] = useState<(typeof types)[number]>("All");
 
   useLayoutEffect(() => {
     const el = headerRef.current;
@@ -43,11 +40,6 @@ export default function Experiences() {
     };
   }, []);
 
-  const filtered = useMemo(() => {
-    if (filter === "All") return experiences;
-    return experiences.filter((e) => e.type === filter);
-  }, [filter]);
-
   return (
     <section
       id="experience"
@@ -69,7 +61,7 @@ export default function Experiences() {
       </header>
 
       <div className="w-full flex flex-col space-y-8">
-        {filtered.map((exp: Experience) => (
+        {experiences.map((exp: Experience) => (
           <ExperienceCard key={exp.id} experience={exp} />
         ))}
       </div>

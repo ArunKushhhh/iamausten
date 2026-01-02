@@ -9,6 +9,7 @@ export default function F1Tile() {
         src="/images/about/f1/JmFRw7DlnVG2gqkb0dIr0YSBI.png"
         alt="F1"
         fill
+        sizes="(max-width: 1024px) 100vw, 33vw"
         className="object-cover"
         loading="lazy"
       />

@@ -1,52 +1,29 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Heading from "../ui/Heading";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import Cursor from "../ui/Cursor";
 
-type Props = {};
-const socialLinks = [
-  {
-    href: "https://www.linkedin.com/in/arun-kumar-kushwaha-b26085286/",
-    Icon: Linkedin,
-    label: "LinkedIn",
-    bgColor: "#2563EB",
-  },
-  {
-    href: "https://github.com/ArunKushhhh",
-    Icon: Github,
-    label: "Github",
-    bgColor: "#29903B",
-  },
-  {
-    href: "https://x.com/austen_dev",
-    Icon: Twitter,
-    label: "Twitter",
-    bgColor: "#171717",
-  },
-  {
-    href: "mailto:austen.dezigns.dev@gmail.com",
-    Icon: Mail,
-    label: "Mail",
-    bgColor: "#DA4034",
-  },
-];
-const Footer = (props: Props) => {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+const Footer = () => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
   return (
-    <Link href={"https://drive.google.com/file/d/1P_dij4oxqclU5uwDAHWwC-1lpd1XZlDO/view"} className="w-full min-h-screen bg-[#2563EB] text-white fixed bottom-0 px-6 sm:px-18 lg:px-36 pt-32 pb-16 lg:pt-40 flex items-end justify-between">
+    <Link
+      href={
+        "https://drive.google.com/drive/folders/16df5F8WmEsYC_LkMBRP05OsCWLWjahbW?usp=drive_link"
+      }
+      className="w-full min-h-screen bg-[#2563EB] text-white fixed bottom-0 px-6 sm:px-18 lg:px-36 pt-32 pb-16 lg:pt-40 flex items-end justify-between"
+    >
       <div className="relative w-full flex justify-between items-center">
         {/* left */}
         <div className="flex flex-col gap-4 md:gap-6">
@@ -73,8 +50,8 @@ const Footer = (props: Props) => {
             austen.dezigns.dev@gmail.com
           </div>
 
-          <div className="capitalize text-sm lg:hidden">
-            Click anywhere to download my Resume!
+          <div className="text-sm lg:hidden">
+            Click anywhere to download my Resume
           </div>
         </div>
 

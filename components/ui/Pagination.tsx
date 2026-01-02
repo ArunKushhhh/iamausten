@@ -6,18 +6,10 @@ import clsx from "clsx";
 type Props = {
   pages: number;
   current: number;
-  onPrev?: () => void;
-  onNext?: () => void;
   onSelect?: (index: number) => void;
 };
 
-export default function Pagination({
-  pages,
-  current,
-  onPrev,
-  onNext,
-  onSelect,
-}: Props) {
+export default function Pagination({ pages, current, onSelect }: Props) {
   if (pages <= 1) return null;
 
   return (

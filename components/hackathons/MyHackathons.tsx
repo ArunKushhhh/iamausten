@@ -11,9 +11,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-type Props = {};
-
-const MyHackathons = (props: Props) => {
+const MyHackathons = () => {
   const headerRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const innerRef = useRef<HTMLDivElement | null>(null);
@@ -69,7 +67,7 @@ const MyHackathons = (props: Props) => {
     if (innerRef.current) ro.observe(innerRef.current);
 
     return () => ro.disconnect();
-  }, [hackathons.length]);
+  }, []);
 
   useEffect(() => {
     const el = containerRef.current;
@@ -188,13 +186,7 @@ const MyHackathons = (props: Props) => {
       </div>
 
       {/* Pagination controls */}
-      <Pagination
-        pages={pages}
-        current={currentPage}
-        onPrev={handlePrev}
-        onNext={handleNext}
-        onSelect={handleSelect}
-      />
+      <Pagination pages={pages} current={currentPage} onSelect={handleSelect} />
     </div>
   );
 };

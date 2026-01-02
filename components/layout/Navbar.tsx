@@ -20,7 +20,7 @@ const navItems = [
   { href: "#myworks", Icon: BriefcaseBusiness, label: "Work" },
   { href: "#about", Icon: User, label: "About" },
   {
-    href: "https://drive.google.com/file/d/1P_dij4oxqclU5uwDAHWwC-1lpd1XZlDO/view",
+    href: "https://drive.google.com/drive/folders/16df5F8WmEsYC_LkMBRP05OsCWLWjahbW?usp=drive_link",
     Icon: FileUser,
     label: "Resume",
   },
